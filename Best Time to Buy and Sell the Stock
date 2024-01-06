@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        
+        int min_price = prices[0]; // set initially minimum price as prices[0] 
+        
+        int maxprof = 0; // set max profit as 0
+
+        for(int i=1;i<prices.size();i++){
+            
+            maxprof = max(maxprof,prices[i]-min_price); 
+            // now at each prices[i] , calculate the difference between the prices[i] & min_price (which will start from prices[0] and will be update at each index)
+            
+            min_price = min(prices[i],min_price); 
+            // same update the min price so that the profit we are calculating will be maximum considering each prices[i]
+            
+        }
+
+        return maxprof; 
+    }
+};
